@@ -103,6 +103,104 @@
           }
         }
       }
+    },
+    "oranges": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/oranges",
+      "sourceRoot": "projects/oranges/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/oranges",
+            "index": "projects/oranges/src/index.html",
+            "main": "projects/oranges/src/main.ts",
+            "polyfills": "projects/oranges/src/polyfills.ts",
+            "tsConfig": "projects/oranges/tsconfig.app.json",
+            "assets": [
+              "projects/oranges/src/favicon.ico",
+              "projects/oranges/src/assets"
+            ],
+            "styles": [
+              "projects/oranges/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/oranges/src/environments/environment.ts",
+                  "with": "projects/oranges/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "oranges:build:production"
+            },
+            "development": {
+              "browserTarget": "oranges:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "oranges:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/oranges/src/test.ts",
+            "polyfills": "projects/oranges/src/polyfills.ts",
+            "tsConfig": "projects/oranges/tsconfig.spec.json",
+            "karmaConfig": "projects/oranges/karma.conf.js",
+            "assets": [
+              "projects/oranges/src/favicon.ico",
+              "projects/oranges/src/assets"
+            ],
+            "styles": [
+              "projects/oranges/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
     }
   },
   "defaultProject": "apples"
