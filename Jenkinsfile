@@ -19,11 +19,6 @@ pipeline {
             sh 'npm run build:apples'
           }
         }
-        stage('Build oranges') {
-          steps {
-            sh 'npm run build:oranges'
-          }
-        }
       }
     }
     stage('Deploy') {
