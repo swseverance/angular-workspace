@@ -34,8 +34,22 @@ pipeline {
       when {
         branch 'develop'
       }
-      steps {
-        echo 'Deploying to DEV'
+      script {
+        sshPublisher(
+        continueOnError: false, failOnError: true,
+        publishers: [
+          sshPublisherDesc(
+          configName: "Application-Server-New",
+          verbose: true,
+          transfers: [
+            sshTransfer(
+            sourceFiles: "dist/apples, dist/oranges",
+            removePrefix: "dist",
+            remoteDirectory: ".",
+            execCommand: "run commands after copy?"
+            )
+          ])
+        ])
       }
     }
   }
