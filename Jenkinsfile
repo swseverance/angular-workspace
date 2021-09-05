@@ -34,7 +34,7 @@ pipeline {
       when {
         branch 'develop'
       }
-      script {
+      steps {
         sshPublisher(
         continueOnError: false, failOnError: true,
         publishers: [
