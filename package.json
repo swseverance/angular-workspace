@@ -8,8 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless",
-    "build:apples": "ng build apples",
-    "build:oranges": "ng build oranges"
+    "build:apples": "ng build apples --base-href=apples",
+    "build:oranges": "ng build oranges --base-href=oranges"
   },
   "private": true,
   "dependencies": {
