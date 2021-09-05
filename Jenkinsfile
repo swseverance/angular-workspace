@@ -47,7 +47,8 @@ pipeline {
                 removePrefix: "dist",
                 remoteDirectory: "/"
               )
-            ]
+            ],
+            useWorkspaceInPromotion: true
           )
         ])
       }
