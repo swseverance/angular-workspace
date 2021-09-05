@@ -30,9 +30,12 @@ pipeline {
         }
       }
     }
-    stage('Deploy') {
+    stage('Deploy to DEV') {
+      when {
+        branch 'develop'
+      }
       steps {
-        echo 'Deploying....'
+        echo 'Deploying to DEV'
       }
     }
   }
