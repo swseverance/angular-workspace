@@ -8,7 +8,6 @@ pipeline {
   stages {
     stage('Install') {
       steps {
-        sh 'echo $PATH'
         sh 'npm install'
       }
     }
@@ -22,6 +21,11 @@ pipeline {
         stage('Build apples') {
           steps {
             sh 'npm run build:apples'
+          }
+        }
+        stage('Build oranges') {
+          steps {
+            sh 'npm run build:oranges'
           }
         }
       }
