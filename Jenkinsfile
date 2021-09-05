@@ -43,9 +43,9 @@ pipeline {
             verbose: true,
             transfers: [
               sshTransfer(
-                sourceFiles: "./dist/**/*",
+                sourceFiles: "dist/**/*",
                 removePrefix: "dist",
-                remoteDirectory: "/"
+                remoteDirectory: "/home/ec2-user"
               )
             ],
             useWorkspaceInPromotion: true
