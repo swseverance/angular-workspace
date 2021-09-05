@@ -43,7 +43,7 @@ pipeline {
             verbose: true,
             transfers: [
               sshTransfer(
-                sourceFiles: "dist/apples, dist/oranges",
+                sourceFiles: "/dist/**/*",
                 removePrefix: "dist",
                 remoteDirectory: "/"
               )
