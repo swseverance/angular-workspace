@@ -15,10 +15,14 @@ pipeline {
     stage('Build') {
       parallel {
         stage('Build apples') {
-          sh 'npm run build:apples'
+          steps {
+            sh 'npm run build:apples'
+          }
         }
         stage('Build oranges') {
-          sh 'npm run build:oranges'
+          steps {
+            sh 'npm run build:oranges'
+          }
         }
       }
     }
