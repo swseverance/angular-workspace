@@ -36,21 +36,24 @@ pipeline {
       }
       steps {
         sshPublisher(
-        continueOnError: false, failOnError: true,
-        publishers: [
-          sshPublisherDesc(
-            configName: "Application-Server-New",
-            verbose: true,
-            transfers: [
-              sshTransfer(
-                sourceFiles: "dist/**/*",
-                removePrefix: "dist",
-                remoteDirectory: "/home/ec2-user"
-              )
-            ],
-            useWorkspaceInPromotion: true
-          )
-        ])
+          continueOnError: false,
+          failOnError: true,
+          publishers: [
+            sshPublisherDesc(
+              configName: "Application-Server-New",
+              verbose: true,
+              transfers: [
+                sshTransfer(
+                  sourceFiles: "dist/**/*",
+                  removePrefix: "dist",
+                  remoteDirectory: "/home/ec2-user",
+                  execCommand: "./create-image-and-container.sh"
+                )
+              ],
+              useWorkspaceInPromotion: true
+            )
+          ]
+        )
       }
     }
   }
