@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node'
+      image 'node:14-alpine'
     }
   }
 
@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'Test'
+        echo 'test'
       }
     }
     stage('Build') {
