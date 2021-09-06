@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'node:14-alpine'
+      image 'avatsaev/angular-chrome-headless'
     }
   }
 
@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'test'
+        sh 'npm run test:headless'
       }
     }
     stage('Build') {
