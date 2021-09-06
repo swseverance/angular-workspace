@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'avatsaev/angular-chrome-headless'
+      image 'atools/chrome-headless'
     }
   }
 
