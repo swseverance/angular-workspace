@@ -1,7 +1,7 @@
 pipeline {
   agent {
     docker {
-      image 'atools/chrome-headless'
+      image 'browserless/chrome'
     }
   }
 
