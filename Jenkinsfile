@@ -6,6 +6,7 @@ pipeline {
   }
 
   stages {
+    when { changeRequest() }
     stage('Build') {
       steps {
         script {
