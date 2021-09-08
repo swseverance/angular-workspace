@@ -1,8 +1,10 @@
 pipeline {
   agent {
-    docker {
-      image 'node:14-alpine'
-    }
+    dockerfile true
+  }
+
+  environment {
+    GITHUB_TOKEN = credentials('GITHUB_TOKEN')
   }
 
   stages {
@@ -13,7 +15,7 @@ pipeline {
     }
     stage('Test') {
       steps {
-        echo 'test'
+        echo 'test...'
       }
     }
     stage('Build') {
@@ -55,6 +57,14 @@ pipeline {
           ]
         )
       }
+    }
+  }
+  post {
+    success {
+      sh './update-status.sh success $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
+    }
+    failure {
+      sh './update-status.sh failure $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
     }
   }
 }
