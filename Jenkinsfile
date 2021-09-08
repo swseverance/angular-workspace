@@ -61,7 +61,7 @@ pipeline {
   }
   post {
     success {
-      sh './update-status.sh success $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
+      sh './update-status.sh failure $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
     }
     failure {
       sh './update-status.sh failure $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
