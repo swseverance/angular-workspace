@@ -1,1 +1,1 @@
-FROM node
+FROM circleci/node:lts-bullseye-browsers-legacy

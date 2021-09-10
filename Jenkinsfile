@@ -13,13 +13,13 @@ pipeline {
         sh 'npm install'
       }
     }
-    stage('Test') {
-      steps {
-        echo 'test...'
-      }
-    }
-    stage('Build') {
+    stage('Build & Test') {
       parallel {
+        stage('Test') {
+          steps {
+            sh 'npm run test:headless'
+          }
+        }
         stage('Build apples') {
           steps {
             sh 'npm run build:apples'
