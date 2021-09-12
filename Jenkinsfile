@@ -1,4 +1,4 @@
-void setBuildStatus(String state) {
+void setGithubCommitStatus(String state) {
   step([
     $class: "GitHubCommitStatusSetter",
     reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/swseverance/angular-workspace"],
@@ -69,10 +69,10 @@ pipeline {
   }
   post {
     success {
-      setBuildStatus("SUCCESS")
+      setGithubCommitStatus("SUCCESS")
     }
     failure {
-      setBuildStatus("FAILURE")
+      setGithubCommitStatus("FAILURE")
     }
   }
 }
