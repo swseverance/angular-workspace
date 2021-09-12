@@ -11,7 +11,7 @@ void setBuildStatus(String state) {
 pipeline {
   agent {
     docker {
-      image 'circleci/node:16-browsers'
+      image 'cimg/node:15.0.1-browsers'
     }
   }
 
