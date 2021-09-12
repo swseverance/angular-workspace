@@ -70,7 +70,13 @@ pipeline {
       ]);
     }
     failure {
-      sh './update-status.sh failure $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
+      step([
+        $class: "GitHubCommitStatusSetter",
+        reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/swseverance/angular-workspace"],
+        contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "continuous-integration/jenkins"],
+        errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
+        statusResultSource: [$class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: "OH NO!!!", state: "FAILURE"]] ]
+      ]);
     }
   }
 }
