@@ -66,7 +66,7 @@ pipeline {
         reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/swseverance/angular-workspace"],
         contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "continuous-integration/jenkins"],
         errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
-        statusResultSource: [$class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: "done!!!", state: "success"]] ]
+        statusResultSource: [$class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: "done!!!", state: "SUCCESS"]] ]
       ]);
     }
     failure {
