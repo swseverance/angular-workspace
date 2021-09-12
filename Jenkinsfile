@@ -1,10 +1,18 @@
+void setBuildStatus(String state) {
+  step([
+    $class: "GitHubCommitStatusSetter",
+    reposSource: [$class: "ManuallyEnteredRepositorySource", url: "https://github.com/swseverance/angular-workspace"],
+    contextSource: [$class: "ManuallyEnteredCommitContextSource", context: "continuous-integration/jenkins"],
+    errorHandlers: [[$class: "ChangingBuildStatusErrorHandler", result: "UNSTABLE"]],
+    statusResultSource: [$class: "ConditionalStatusResultSource", results: [[$class: "AnyBuildResult", message: state, state: state]] ]
+  ]);
+}
+
 pipeline {
   agent {
-    dockerfile true
-  }
-
-  environment {
-    GITHUB_TOKEN = credentials('GITHUB_TOKEN')
+    docker {
+      image 'circleci/node:lts-bullseye-browsers-legacy'
+    }
   }
 
   stages {
@@ -61,10 +69,10 @@ pipeline {
   }
   post {
     success {
-      sh './update-status.sh success $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
+      setBuildStatus("SUCCESS")
     }
     failure {
-      sh './update-status.sh failure $GITHUB_TOKEN $GIT_COMMIT $BUILD_URL'
+      setBuildStatus("FAILURE")
     }
   }
 }
