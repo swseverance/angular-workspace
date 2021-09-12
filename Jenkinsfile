@@ -11,7 +11,7 @@ void setBuildStatus(String state) {
 pipeline {
   agent {
     docker {
-      image 'cimg/node:15.0.1-browsers'
+      image 'cimg/node:lts-browsers'
     }
   }
 
