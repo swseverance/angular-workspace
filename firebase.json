@@ -1,0 +1,26 @@
+{
+  "apphosting": [
+    {
+      "backendId": "apples",
+      "rootDir": "/projects/apples",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "functions"
+      ]
+    },
+    {
+      "backendId": "oranges",
+      "rootDir": "/projects/oranges",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "firebase-debug.log",
+        "firebase-debug.*.log",
+        "functions"
+      ]
+    }
+  ]
+}

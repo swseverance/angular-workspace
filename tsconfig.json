@@ -21,5 +21,19 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/apples/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/apples/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/oranges/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/oranges/tsconfig.spec.json"
+    }
+  ]
 }
