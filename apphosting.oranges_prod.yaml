@@ -1,5 +1,5 @@
 scripts:
-  buildCommand: ng build apples --configuration=production
+  buildCommand: ng build oranges --configuration=production
 
 env:
   - variable: MESSAGE
