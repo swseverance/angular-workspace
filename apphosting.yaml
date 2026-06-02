@@ -1,6 +1,0 @@
-runConfig:
-  minInstances: 0
-
-env:
-- variable: MESSAGE
-  value: local
