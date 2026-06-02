@@ -7,10 +7,16 @@ import {
 import express from 'express';
 import { join } from 'node:path';
 
+delete process.env['NG_TRUST_PROXY_HEADERS'];
+delete process.env['NG_ALLOWED_HOSTS'];
+
 const browserDistFolder = join(import.meta.dirname, '../browser');
 
 const app = express();
-const angularApp = new AngularNodeAppEngine();
+const angularApp = new AngularNodeAppEngine({
+  allowedHosts: ['*'],
+  trustProxyHeaders: true
+});
 
 /**
  * Example Express Rest API endpoints can be defined here.
@@ -23,6 +29,9 @@ const angularApp = new AngularNodeAppEngine();
  * });
  * ```
  */
+app.get('/api', (_, res) => {
+  res.json({ message: process.env['MESSAGE'] });
+});
 
 /**
  * Serve static files from /browser

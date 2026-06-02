@@ -1,0 +1,6 @@
+scripts:
+  buildCommand: ng build apples --configuration=production
+
+env:
+  - variable: MESSAGE
+    value: apples prod
