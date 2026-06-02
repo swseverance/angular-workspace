@@ -26,6 +26,7 @@
               }
             ],
             "styles": ["projects/apples/src/styles.css"],
+            "outputPath": "dist",
             "server": "projects/apples/src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -104,6 +105,7 @@
               }
             ],
             "styles": ["projects/oranges/src/styles.css"],
+            "outputPath": "dist",
             "server": "projects/oranges/src/main.server.ts",
             "outputMode": "server",
             "security": {
