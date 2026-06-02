@@ -1,2 +1,0 @@
-scripts:
-  buildCommand: ng build apples --configuration=development

@@ -2,7 +2,6 @@
   "apphosting": [
     {
       "backendId": "apples",
-      "rootDir": "/projects/apples",
       "ignore": [
         "node_modules",
         ".git",
@@ -13,7 +12,6 @@
     },
     {
       "backendId": "oranges",
-      "rootDir": "/projects/oranges",
       "ignore": [
         "node_modules",
         ".git",
