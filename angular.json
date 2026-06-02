@@ -37,19 +37,13 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
+              "outputHashing": "all",
+              "fileReplacements": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "replace": "projects/apples/src/environments/environment.ts",
+                  "with": "projects/apples/src/environments/environment.production.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
@@ -61,9 +55,14 @@
                   "with": "projects/apples/src/environments/environment.development.ts"
                 }
               ]
+            },
+            "local": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "local"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
@@ -73,9 +72,13 @@
             },
             "development": {
               "buildTarget": "apples:build:development"
+            },
+            "local": {
+              "buildTarget": "apples:build:local",
+              "port": 4200
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "local"
         },
         "test": {
           "builder": "@angular/build:unit-test"
@@ -112,19 +115,13 @@
           },
           "configurations": {
             "production": {
-              "budgets": [
+              "outputHashing": "all",
+              "fileReplacements": [
                 {
-                  "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "replace": "projects/oranges/src/environments/environment.ts",
+                  "with": "projects/oranges/src/environments/environment.production.ts"
                 }
-              ],
-              "outputHashing": "all"
+              ]
             },
             "development": {
               "optimization": false,
@@ -136,9 +133,14 @@
                   "with": "projects/oranges/src/environments/environment.development.ts"
                 }
               ]
+            },
+            "local": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "local"
         },
         "serve": {
           "builder": "@angular/build:dev-server",
@@ -148,9 +150,13 @@
             },
             "development": {
               "buildTarget": "oranges:build:development"
+            },
+            "local": {
+              "buildTarget": "oranges:build:local",
+              "port": 4201
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "local"
         },
         "test": {
           "builder": "@angular/build:unit-test"
