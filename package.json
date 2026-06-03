@@ -7,8 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:apples": "node dist/apples/server/server.mjs",
-    "serve:ssr:oranges": "node dist/oranges/server/server.mjs"
+    "serve:ssr:apples": "node dist/server/server.mjs",
+    "serve:ssr:oranges": "node dist/server/server.mjs"
   },
   "private": true,
   "packageManager": "npm@11.11.0",

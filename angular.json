@@ -26,6 +26,7 @@
               }
             ],
             "styles": ["projects/apples/src/styles.css"],
+            "outputPath": "dist",
             "server": "projects/apples/src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -49,6 +50,7 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
+              "outputHashing": "all",
               "fileReplacements": [
                 {
                   "replace": "projects/apples/src/environments/environment.ts",
@@ -104,6 +106,7 @@
               }
             ],
             "styles": ["projects/oranges/src/styles.css"],
+            "outputPath": "dist",
             "server": "projects/oranges/src/main.server.ts",
             "outputMode": "server",
             "security": {
@@ -127,6 +130,7 @@
               "optimization": false,
               "extractLicenses": false,
               "sourceMap": true,
+              "outputHashing": "all",
               "fileReplacements": [
                 {
                   "replace": "projects/oranges/src/environments/environment.ts",
